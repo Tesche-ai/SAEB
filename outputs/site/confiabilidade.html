@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Os dados do SAEB são confiáveis? — Detecção de anomalia</title>
+<meta name="description" content="Existe cola ou treino para a prova no SAEB? Cinco testes de detecção de anomalia sobre o censo 2023, do 5º ano ao Ensino Médio. Exploratório.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topnav"><div class="wrap">
+  <a href="index.html">Ensino Médio</a>
+  <a href="ef.html">Ensino Fundamental</a>
+  <a href="confiabilidade.html" class="active">Os dados são confiáveis?</a>
+</div></nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero"><div class="wrap">
+  <p class="kicker">Uma investigação exploratória · SAEB 2023 · Detecção de anomalia</p>
+  <p class="hero-fact">O SAEB sustenta o IDEB, e o IDEB move metas, bônus e reputação.</p>
+  <h1 class="hero-contra">Onde há incentivo para inflar a nota, há motivo para manipular.</h1>
+  <p class="hero-q">Os dados mostram sinal de cola ou de treino para a prova?</p>
+  <p class="hero-sub">Há relatos recorrentes de manipulação no SAEB: professores orientando alunos durante a prova, escolas treinando para o teste. Aplicamos cinco testes estatísticos de detecção de anomalia sobre o censo de 2023, do 5º ano ao Ensino Médio. A maioria dos sinais grosseiros está limpa. Um teste, porém, acende uma bandeira vermelha exatamente onde o incentivo é mais forte.</p>
+</div></header>
+
+<!-- ===================== LANDING CARDS ===================== -->
+<section class="landing"><div class="wrap">
+  <h2 class="section-title">Como ler esta página</h2>
+  <div class="cards">
+    <a class="card" href="#cap1">
+      <div class="card-viz"><img src="figures/ef_fraude_inse_9ef.png" alt=""></div>
+      <div class="card-body"><div class="card-num">O achado</div>
+        <div class="card-h">A bandeira vermelha do 9º ano</div>
+        <div class="card-stat">As turmas quase-perfeitas se concentram nas escolas mais pobres: 56% no quinto mais pobre, contra 20% esperado.</div></div>
+    </a>
+    <a class="card" href="#cap2">
+      <div class="card-viz"><img src="figures/fig1_distribuicao.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Os testes</div>
+        <div class="card-h">O que está limpo</div>
+        <div class="card-stat">Achatamento de dificuldade e strings idênticas: sem sinal em nenhuma etapa.</div></div>
+    </a>
+    <a class="card" href="#cap3">
+      <div class="card-viz"><img src="figures/ef_fraude_inse_5ef.png" alt=""></div>
+      <div class="card-body"><div class="card-num">A leitura</div>
+        <div class="card-h">Onde o incentivo aperta</div>
+        <div class="card-stat">O sinal cresce do Médio ao 9º ano, justamente onde o IDEB pesa mais.</div></div>
+    </a>
+  </div>
+</div></section>
+
+<main class="wrap">
+
+<!-- ===================== CAP 1 ===================== -->
+<section class="cap" id="cap1">
+  <p class="cap-num">O achado</p>
+  <h2>A bandeira vermelha do 9º ano</h2>
+  <p class="lead">O teste mais informativo não pergunta "quem foi bem?", mas "quem foi bem onde não deveria?". Cruzamos as turmas com excesso de alunos quase-perfeitos (90% ou mais de acerto) com o nível socioeconômico da escola.</p>
+
+  <p>A lógica é direta. Desempenho excepcional genuíno costuma se concentrar em escolas de alto nível socioeconômico (privadas, federais, seletivas). Se em vez disso as turmas quase-perfeitas aparecem nas escolas mais pobres, o padrão é difícil de explicar por mérito e compatível com manipulação, exatamente o cenário que os relatos descrevem.</p>
+
+  <figure><img src="figures/ef_fraude_inse_9ef.png" alt="Turmas quase-perfeitas por quinto socioeconômico, 9º ano">
+    <figcaption>9º ano, 2023. Cinza: distribuição de todas as turmas pelos quintos de INSE da escola (20% em cada, por construção). Laranja: distribuição das 297 turmas com mais de 30% de alunos quase-perfeitos.</figcaption></figure>
+
+  <p>No <strong>9º ano</strong>, as turmas suspeitas se concentram no <strong>quinto mais pobre: 56%</strong>, contra os 20% que seriam esperados por acaso. No quinto mais rico, onde a excelência genuína deveria aparecer, estão apenas 18%. O sinal aponta na direção contrária ao mérito.</p>
+
+  <p class="punch flag">Quando o desempenho perfeito se acumula nas escolas mais pobres em vez das mais ricas, a explicação por mérito não fecha.</p>
+
+  <p>O 9º ano é precisamente onde o incentivo é mais forte. O IDEB dos anos finais do Ensino Fundamental é uma métrica central das redes municipais, ligada a metas, bônus e exposição pública. A pressão para a nota subir é máxima ali, e é ali que o sinal aparece com mais força.</p>
+</section>
+
+<!-- ===================== CAP 2 ===================== -->
+<section class="cap" id="cap2">
+  <p class="cap-num">Os testes</p>
+  <h2>O que olhamos, e o que está limpo</h2>
+  <p>Antes do achado, a checagem dos sinais grosseiros. Cola em escala e treino direto deixam rastros estatísticos conhecidos. A maior parte deles não aparece no SAEB.</p>
+
+  <h3>Achatamento dificuldade ↔ acerto (limpo)</h3>
+  <p>Quando uma turma recebe ajuda indiscriminada, os itens difíceis passam a ser acertados tanto quanto os fáceis, e a diferença de acerto entre fácil e difícil encolhe ou inverte. Medimos esse gap em todas as escolas com pelo menos 30 alunos. No Ensino Médio o gap médio é <strong>0,30</strong>, sempre positivo (nenhuma escola com gap zero ou negativo). No 9º e no 5º ano o gap é ainda maior (0,38 e 0,40). O sinal esperado de manipulação não está presente.</p>
+
+  <h3>Strings de respostas idênticas (limpo, e por desenho)</h3>
+  <p>Cópia em massa produziria blocos inteiros de respostas idênticas dentro de uma mesma turma. Não encontramos um único grupo com três ou mais alunos com a sequência completa de respostas igual, em nenhuma etapa. Esse resultado é em parte garantido pelo próprio desenho do SAEB: a prova é espiralada em vários cadernos por turma, então a maioria dos colegas responde a itens diferentes, o que torna a cópia literal pouco viável.</p>
+
+  <h3>Aberrância (sinal fraco)</h3>
+  <p>Um aluno "aberrante" acerta os itens difíceis e erra os fáceis, padrão improvável sem ajuda seletiva. A taxa média por turma é baixa (13% no Médio, 7% a 9% no Fundamental), mas há uma cauda: <strong>491 turmas no Médio, 190 no 9º e 275 no 5º ano</strong> com mais de 40% de alunos aberrantes. É um sinal a investigar, não uma conclusão.</p>
+
+  <table>
+    <thead><tr><th>Teste</th><th>5º ano</th><th>9º ano</th><th>3ª EM</th></tr></thead>
+    <tbody>
+      <tr><td>Achatamento (escolas gap ≤ 0)</td><td>8 / 26 mil</td><td>1 / 24 mil</td><td>0 / 15 mil</td></tr>
+      <tr><td>Strings idênticas (≥3)</td><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>Turmas &gt;40% aberrantes</td><td>275</td><td>190</td><td>491</td></tr>
+      <tr><td>Turmas &gt;30% quase-perfeitos</td><td>1.402</td><td>297</td><td>24</td></tr>
+    </tbody>
+  </table>
+  <p>Os sinais grosseiros (achatamento, cópia literal) estão limpos. O que destoa é o excesso de turmas quase-perfeitas no Fundamental, e principalmente sua <strong>distribuição socioeconômica</strong>, o teste do capítulo anterior.</p>
+</section>
+
+<!-- ===================== CAP 3 ===================== -->
+<section class="cap" id="cap3">
+  <p class="cap-num">A leitura</p>
+  <h2>O gradiente do incentivo</h2>
+  <p>Repetir o teste socioeconômico nas três etapas revela um gradiente que acompanha a pressão sobre cada uma.</p>
+
+  <figure><img src="figures/ef_fraude_inse_5ef.png" alt="Turmas quase-perfeitas por quinto socioeconômico, 5º ano">
+    <figcaption>5º ano, 2023. As 1.402 turmas suspeitas se dividem entre o quinto mais pobre (33%) e o mais rico (40%): parte excelência genuína de escolas fortes, parte sinal a investigar nas escolas pobres.</figcaption></figure>
+
+  <ul>
+    <li><strong>Ensino Médio:</strong> quase nenhuma turma quase-perfeita (24 no país). O IDEB do Médio é menos central e a prova é mais difícil. Pouco sinal, pouco incentivo.</li>
+    <li><strong>5º ano:</strong> muitas turmas quase-perfeitas (1.402), mas o padrão é <strong>bimodal</strong>: 40% nas escolas mais ricas (excelência plausível) e 33% nas mais pobres (a parte que pede investigação).</li>
+    <li><strong>9º ano:</strong> o padrão mais limpo e mais preocupante. As suspeitas se concentram <strong>56% no quinto mais pobre</strong>, contra 18% no mais rico. A bimodalidade do 5º ano some, e sobra o sinal contrário ao mérito.</li>
+  </ul>
+
+  <p>O gradiente é consistente com a hipótese de manipulação induzida pelo IDEB: mais forte onde a métrica pesa mais (anos finais do Fundamental, redes municipais) e mais fraco onde pesa menos (Ensino Médio). Não é prova. É o tipo de assinatura que se esperaria ver se a manipulação fosse real, e que justifica investigação dirigida, turma a turma, nas escolas pobres com excesso de desempenho perfeito.</p>
+
+  <p class="punch flag">O sinal cresce na direção do incentivo. Isso não fecha o caso, mas aponta para onde olhar.</p>
+</section>
+
+<div class="nota">
+  <strong>Nota metodológica e ressalva.</strong> Análise <strong>exploratória</strong>, sobre SAEB 2023, censo, matemática (5º ano, 9º ano e 3ª série do Ensino Médio). Os testes: (1) achatamento, gap de acerto entre itens fáceis e difíceis por escola; (2) aberrância, alunos que acertam difícil e erram fácil, por turma; (4) excesso de turmas com mais de 30% de alunos com acerto ≥ 90%; (5) sequências de resposta idênticas em turma e caderno; (4×INSE) distribuição das turmas suspeitas pelos quintos de INSE da escola. Turma exige N ≥ 15, escola N ≥ 30. Um teste de painel entre edições (salto e reversão de desempenho de escola) ficou pendente por uma falha de junção de identificadores entre anos. <strong>Nenhum desses testes prova fraude.</strong> Eles sinalizam padrões incompatíveis com desempenho genuíno; a confirmação exigiria auditoria caso a caso. A concentração das turmas quase-perfeitas nas escolas pobres do 9º ano é a bandeira mais consistente, e o ponto de partida natural para essa auditoria.
+</div>
+
+</main>
+
+<footer><div class="wrap">
+  Fontes: Microdados SAEB (INEP), 2023. Cálculos independentes, exploratórios. Projeto separado da análise do ENEM. <span class="badge">exploratório v1</span>
+</div></footer>
+
+</body>
+</html>

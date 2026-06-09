@@ -78,3 +78,34 @@ marcados com ⚠️ são escolhas que valem revisão.
 - ⚠️ Revisar o de-para nos casos de fronteira (geom. analítica, PA/PG, sistemas).
 - Legenda do dotplot (fig2) encosta na última linha; ajuste cosmético.
 - Frente separada: **confiabilidade/anomalia** (mesmo scorer, + Censo Escolar para fluxo).
+
+## 10. Ensino Fundamental (5º e 9º ano, 2023)
+- `scripts/build_ef.py`. Habilidade no nível de **área** (4 temas da Matriz: ESP,
+  GM, NUM, TI), não os 10 descritores finos do EM, porque os descritores do EF
+  seguem matriz própria (5º: D1–D28; 9º: D1–D37) organizada por área.
+- Fronteiras de tema (padrão da matriz): 5º — ESP D1-5, GM D6-12, NUM D13-26,
+  TI D27-28; 9º — ESP D1-12, GM D13-18, NUM D19-35, TI D36-37. Códigos-âncora
+  por letra (E→ESP, G/M→GM, N/A→NUM).
+- Adequado: prof ≥ **225** (5º), ≥ **300** (9º), na escala equalizada.
+- NPOS detectado dinamicamente (max NU_POSICAO): 5º=11 itens/bloco, 9º=13.
+- **Funil**: 44,3% (5º) → 17,3% (9º) → 5,5% (EM) adequado. Corr taxa×prof > 0,9.
+
+## 11. Confiabilidade / detecção de anomalia (exploratório)
+- `scripts/anomalia.py` (ciente de etapa), `figuras_ef.py` (teste 4×INSE).
+- Testes: #1 achatamento dificuldade↔acerto (escola); #2 aberrância (turma);
+  #4 excesso de turmas quase-perfeitas (≥90% acerto); #5 strings idênticas;
+  #4×INSE distribuição das turmas suspeitas pelos quintos de INSE da escola.
+- **Limpos**: #1 (gap sempre positivo, 0,30–0,40) e #5 (zero grupos com ≥3
+  strings idênticas; BIB espirala cadernos e neutraliza cópia literal).
+- **Achado**: turmas com >30% quase-perfeitos concentram-se nas escolas pobres
+  no 9º ano (Q1=56% vs base 20%; Q5=18%). 5º bimodal (Q1=33%, Q5=40%). EM quase
+  sem turmas quase-perfeitas (24 no país). Gradiente acompanha o incentivo do
+  IDEB (forte nos anos finais do EF municipal). **Não prova fraude**; sinaliza.
+- **Geografia** (UF do 1% mais suspeito EM): removida do site por ser anedótica.
+- ⚠️ Painel #6 (salto-e-reversão entre edições) retornou 0 escolas: junção de
+  ID de escola entre anos falhou. Pendente.
+
+## 12. Site multi-página
+- `outputs/site/`: `index.html` (EM), `ef.html` (EF), `confiabilidade.html`
+  (anomalia). CSS extraído para `style.css` compartilhado + nav sticky 3-links.
+- Variante `.flag` do `.punch` (borda laranja) para bandeiras vermelhas de fraude.
