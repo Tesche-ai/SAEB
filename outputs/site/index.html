@@ -3,145 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A matemática que falta, no censo: SAEB 2017–2023 (4 censos)</title>
+<title>A matemática que falta, no censo — SAEB 2017–2023</title>
+<meta name="description" content="O que sabem de matemática os concluintes do Ensino Médio, no censo SAEB. Quatro edições, escala equalizada, 1,5 milhão de alunos por ano.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#1F5582;--teal:#00847E;--orange:#DC4E28;--ink:#2a2a2a;--gray:#6C757D;--line:#ececec;}
+  :root{--navy:#1F5582;--teal:#00847E;--orange:#DC4E28;--yellow:#FFB81C;--ink:#2a2a2a;--gray:#6C757D;--line:#ececec;--bg:#fbfbfa;}
   *{box-sizing:border-box;}
-  body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);line-height:1.65;margin:0;background:#fff;}
-  .wrap{max-width:820px;margin:0 auto;padding:0 22px;}
-  header.hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
-  .kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);}
-  h1{font-size:2.5rem;line-height:1.12;font-weight:900;color:var(--navy);margin:.3em 0 .2em;}
-  .lead{font-size:1.18rem;color:#444;}
-  .cap{padding:46px 0 8px;}
-  .cap-num{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);}
-  h2{font-size:1.7rem;font-weight:800;color:var(--navy);margin:.15em 0 .5em;line-height:1.2;}
-  h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:1.4em 0 .3em;}
-  p{margin:.6em 0;}
-  strong{color:var(--ink);}
-  figure{margin:26px 0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',-apple-system,Segoe UI,sans-serif;color:var(--ink);line-height:1.65;margin:0;background:#fff;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 22px;}
+
+  /* HERO */
+  header.hero{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);border-bottom:1px solid var(--line);padding:70px 0 56px;}
+  .kicker{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);}
+  .hero-fact{font-size:1.45rem;font-weight:600;color:var(--gray);margin:18px 0 2px;}
+  .hero-contra{font-size:2.7rem;line-height:1.08;font-weight:900;color:var(--navy);margin:0;}
+  .hero-q{font-size:1.25rem;color:var(--teal);font-weight:700;margin:14px 0 0;}
+  .hero-sub{font-size:1.1rem;color:#444;margin-top:24px;max-width:680px;}
+
+  /* LANDING CARDS */
+  .landing{padding:48px 0 8px;}
+  .landing h2.section-title{font-size:1.05rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin:0 0 18px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+  a.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .18s ease,box-shadow .18s ease;}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.10);}
+  .card-viz{background:var(--bg);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:12px;border-bottom:1px solid var(--line);overflow:hidden;}
+  .card-viz img{max-width:100%;max-height:100%;object-fit:contain;}
+  .card-body{padding:16px 18px 20px;}
+  .card-num{font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--orange);}
+  .card-h{font-size:1.12rem;font-weight:800;color:var(--navy);line-height:1.22;margin:4px 0 8px;}
+  .card-stat{font-size:.92rem;color:#555;}
+
+  /* CHAPTERS */
+  .cap{padding:54px 0 8px;border-top:1px solid var(--line);}
+  .cap:first-of-type{border-top:none;}
+  .cap-num{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);}
+  h2{font-size:1.95rem;font-weight:800;color:var(--navy);margin:.12em 0 .4em;line-height:1.18;}
+  h3{font-size:1.18rem;font-weight:700;color:var(--navy);margin:1.5em 0 .3em;}
+  p{margin:.7em 0;}
+  .lead{font-size:1.12rem;color:#444;}
+  figure{margin:28px 0;}
   figure img{width:100%;border:1px solid var(--line);border-radius:6px;}
-  figcaption{font-size:.85rem;color:var(--gray);margin-top:8px;}
-  .punch{font-size:1.12rem;font-weight:600;color:var(--navy);border-left:3px solid var(--teal);padding-left:14px;margin:22px 0;}
-  ul{padding-left:1.2em;} li{margin:.3em 0;}
-  hr{border:none;border-top:1px solid var(--line);margin:40px 0;}
-  table{border-collapse:collapse;width:100%;font-size:.92rem;margin:18px 0;}
-  th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;}
+  figcaption{font-size:.85rem;color:var(--gray);margin-top:9px;line-height:1.5;}
+  .punch{font-size:1.16rem;font-weight:600;color:var(--navy);border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin:26px 0;}
+  ul{padding-left:1.2em;} li{margin:.35em 0;}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;margin:20px 0;}
+  th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;}
   th{color:var(--navy);font-weight:700;}
-  .nota{font-size:.86rem;color:var(--gray);background:#fafafa;border:1px solid var(--line);border-radius:6px;padding:14px 16px;}
-  footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 60px;font-size:.85rem;color:var(--gray);}
+  td:not(:first-child),th:not(:first-child){text-align:center;}
+  .nota{font-size:.87rem;color:#555;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:18px 20px;margin:44px 0 0;}
+  .nota strong{color:var(--navy);}
+  footer{border-top:1px solid var(--line);margin-top:54px;padding:28px 0 70px;font-size:.85rem;color:var(--gray);}
+  .badge{display:inline-block;background:var(--yellow);color:#6b4e00;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:20px;vertical-align:middle;margin-left:8px;}
+  @media(max-width:640px){.hero-contra{font-size:2rem;} h2{font-size:1.55rem;}}
 </style>
 </head>
 <body>
 
+<!-- ===================== HERO ===================== -->
 <header class="hero"><div class="wrap">
   <p class="kicker">Uma investigação · SAEB 2017–2023 · Matemática, Ensino Médio</p>
-  <h1>A matemática que falta, agora no censo</h1>
-  <p class="lead">O artigo do ENEM olhou quem se inscreve para o vestibular, um corte já filtrado. O SAEB é o <strong>censo</strong>: praticamente todos os concluintes do Ensino Médio. E ele responde de frente a pergunta que o ENEM deixou aberta, porque usa uma escala <strong>equalizada entre anos</strong>, comparável de verdade.</p>
+  <p class="hero-fact">No ENEM, a nota de matemática subiu 60 pontos em uma década.</p>
+  <h1 class="hero-contra">No SAEB, o censo, ela não saiu do lugar.</h1>
+  <p class="hero-q">E o que, afinal, sabe quem termina o Ensino Médio?</p>
+  <p class="hero-sub">O ENEM olha quem se inscreve para o vestibular, um corte já filtrado. O SAEB é o <strong>censo</strong>: praticamente todos os concluintes, cerca de 1,5 milhão por edição. E usa uma escala <strong>equalizada entre anos</strong>, comparável de verdade. Quatro edições censitárias, mesma metodologia: 2017, 2019, 2021 e 2023.</p>
 </div></header>
+
+<!-- ===================== LANDING CARDS ===================== -->
+<section class="landing"><div class="wrap">
+  <h2 class="section-title">Cinco capítulos</h2>
+  <div class="cards">
+    <a class="card" href="#cap1">
+      <div class="card-viz"><img src="figures/fig0_evolucao.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Capítulo 1</div>
+        <div class="card-h">Uma década estagnada</div>
+        <div class="card-stat">Aprendizado adequado: 6,6% → 5,5%. A pandemia apagou o pouco que se ganhou.</div></div>
+    </a>
+    <a class="card" href="#cap2">
+      <div class="card-viz"><img src="figures/fig2_dominio_estrato.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Capítulo 2</div>
+        <div class="card-h">O que cada grupo sabe</div>
+        <div class="card-stat">Só Leitura de Dados passa de 40%. Fora do topo, quase nada chega a 50%.</div></div>
+    </a>
+    <a class="card" href="#cap3">
+      <div class="card-viz"><img src="figures/fig4_emergencia.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Capítulo 3</div>
+        <div class="card-h">Os degraus do aprendizado</div>
+        <div class="card-stat">Ler dados é a porta de entrada; chegar ao topo exige fluência em tudo.</div></div>
+    </a>
+    <a class="card" href="#cap4">
+      <div class="card-viz"><img src="figures/fig5_escolas.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Capítulo 4</div>
+        <div class="card-h">As escolas e a sala</div>
+        <div class="card-stat">67% das escolas no segmento mais baixo. Só 0,9% no topo.</div></div>
+    </a>
+    <a class="card" href="#cap5">
+      <div class="card-viz"><img src="figures/fig7_socio.png" alt=""></div>
+      <div class="card-body"><div class="card-num">Capítulo 5</div>
+        <div class="card-h">Renda, e a síntese</div>
+        <div class="card-stat">Mesmo o quinto mais rico: 9 em 10 não atingem o adequado.</div></div>
+    </a>
+  </div>
+</div></section>
 
 <main class="wrap">
 
-<p>Quatro edições censitárias, mesma metodologia: <strong>2017, 2019, 2021 e 2023</strong>, cerca de 1,4 a 1,5 milhão de concluintes do EM em cada uma, com prova de matemática válida. Para cada aluno, escoreamos as respostas item a item, ligamos cada item à habilidade que ele mede (o descritor da Matriz de Referência) e estratificamos pela proficiência. O método é o mesmo do artigo do ENEM. As decisões estão em <code>DECISOES.md</code>.</p>
-
-<hr>
-
-<!-- CAP 1 -->
-<section class="cap">
+<!-- ===================== CAP 1 ===================== -->
+<section class="cap" id="cap1">
   <p class="cap-num">Capítulo 1</p>
   <h2>Uma década estagnada, com um mergulho na pandemia</h2>
-  <p>No ENEM, a nota subiu 60 pontos em dez anos, sem que PISA ou SAEB confirmassem. Aqui medimos o SAEB direto, na escala equalizada que torna a comparação legítima.</p>
+  <p class="lead">No ENEM, a nota subiu 60 pontos em dez anos, sem que PISA ou SAEB confirmassem. Aqui medimos o SAEB direto, na escala equalizada que torna a comparação legítima.</p>
 
-  <figure><img src="figures/fig0_evolucao.png" alt="Evolução da proficiência e do % adequado">
-    <figcaption>Proficiência média e percentual no aprendizado adequado (≥350), 2017–2023. Escala SAEB equalizada.</figcaption></figure>
+  <figure><img src="figures/fig0_evolucao.png" alt="Proficiência média e % adequado, 2017 a 2023">
+    <figcaption>Proficiência média (esquerda) e percentual no aprendizado adequado, ≥350 (direita), de 2017 a 2023. Escala SAEB equalizada, comparável entre anos.</figcaption></figure>
 
-  <p>A proficiência média foi <strong>266 (2017) → 273 (2019) → 267 (2021) → 268 (2023)</strong>. O aprendizado adequado (≥350) subiu de 6,6% para 7,4% até 2019, <strong>despencou para 5,2% em 2021</strong> (o fundo da pandemia) e mal se recuperou em 2023 (5,5%), abaixo de onde estava em 2017. Houve um ganho pequeno na segunda metade da década passada, e a pandemia o apagou.</p>
+  <p>A proficiência média foi <strong>266 (2017) → 273 (2019) → 267 (2021) → 268 (2023)</strong>. O aprendizado adequado subiu de 6,6% para 7,4% até 2019, <strong>despencou para 5,2% em 2021</strong>, o fundo da pandemia, e mal se recuperou em 2023 (5,5%), abaixo de onde estava em 2017.</p>
 
   <figure><img src="figures/fig0b_estratos_tempo.png" alt="Composição por faixa de proficiência ao longo do tempo">
-    <figcaption>Distribuição por faixa de proficiência. A faixa abaixo de 275 volta a 58% em 2023.</figcaption></figure>
+    <figcaption>Distribuição por faixa de proficiência em cada edição. A faixa abaixo de 275 cai a 50% em 2019 e volta a 58% em 2023.</figcaption></figure>
 
   <p class="punch">Na régua que de fato equaliza, a década é de estagnação. O movimento que aparecia no ENEM não existe aqui.</p>
 </section>
 
-<hr>
-
-<!-- CAP 2 -->
-<section class="cap">
+<!-- ===================== CAP 2 ===================== -->
+<section class="cap" id="cap2">
   <p class="cap-num">Capítulo 2</p>
   <h2>O que cada grupo realmente sabe</h2>
-  <p>A foto detalhada usa a edição mais recente e completa (2023). A nota separa os concluintes em quatro grupos: <strong>Chute</strong> (acerta no nível do acaso, taxa abaixo de 0,20), Baixo, Médio e <strong>Alto</strong> (≥350, aprendizado adequado).</p>
+  <p>A foto detalhada usa a edição mais recente (2023). A nota separa os concluintes em quatro grupos: <strong>Chute</strong>, que acerta no nível do acaso (taxa abaixo de 0,20, o esperado chutando itens de 5 alternativas); <strong>Baixo</strong>; <strong>Médio</strong>; e <strong>Alto</strong>, proficiência ≥ 350, o limiar do aprendizado adequado.</p>
 
-  <figure><img src="figures/fig1_distribuicao.png" alt="Distribuição da proficiência 2023">
+  <figure><img src="figures/fig1_distribuicao.png" alt="Distribuição da proficiência, 2023">
     <figcaption>2023: Chute 22%, Baixo 37%, Médio 36%, Alto 5,5%. Um em cada cinco concluintes não distingue de zero o que sabe de matemática.</figcaption></figure>
 
-  <p>Escoreando por habilidade, a leitura é dura e tem a mesma assinatura do ENEM:</p>
+  <p>Escoreando as respostas por habilidade, a leitura é dura e tem a mesma assinatura do ENEM:</p>
 
-  <figure><img src="figures/fig2_dominio_estrato.png" alt="Taxa de acerto por habilidade e estrato 2023">
-    <figcaption>Cada ponto é a probabilidade de acertar um item da habilidade, por estrato. À direita, o acerto da população.</figcaption></figure>
+  <figure><img src="figures/fig2_dominio_estrato.png" alt="Taxa de acerto por habilidade e estrato, 2023">
+    <figcaption>Cada ponto é a probabilidade de acertar um item da habilidade, por estrato. À direita, o acerto da população. O tamanho do ponto reflete o peso do estrato.</figcaption></figure>
 
   <ul>
     <li><strong>Leitura de Dados é a única habilidade com cobertura razoável</strong> (56% de acerto). Ler um gráfico ou uma tabela é o que mais gente consegue fazer.</li>
-    <li><strong>Todas as outras oito ficam abaixo de 40%:</strong> Porcentagem 38%, Equações 34%, Números reais 33%, Geometria 31%, Funções 30%, Proporcionalidade 26%, Medida 24%, Estatística/probabilidade 21%.</li>
+    <li><strong>Todas as outras oito ficam abaixo de 40%:</strong> Porcentagem 38%, Equações 34%, Números reais 33%, Geometria 31%, Funções 30%, Proporcionalidade 26%, Medida 24%, Estatística e probabilidade 21%.</li>
     <li><strong>Fora do estrato Alto, quase nada passa de 50%.</strong> No Médio, só Leitura de Dados (75%) e Porcentagem (55%) cruzam a metade.</li>
     <li>Mesmo o topo tem buracos: o Alto acerta Leitura de Dados em 92%, mas Estatística em 45% e Medida em 58%.</li>
   </ul>
-  <p>A <strong>forma</strong> desse perfil é estável nas quatro edições (Leitura de Dados sempre na frente, abstração sempre atrás). Os níveis absolutos por habilidade não são comparáveis entre anos, porque a composição de itens de cada prova muda; por isso o eixo temporal fica na proficiência equalizada, e o perfil de habilidade é lido dentro de cada ano.</p>
+  <p>A <strong>forma</strong> desse perfil é estável nas quatro edições (Leitura de Dados sempre na frente, a abstração sempre atrás). Os níveis absolutos por habilidade não são comparáveis entre anos, porque a composição de itens de cada prova muda. Por isso a dimensão temporal fica na proficiência equalizada, e o perfil de habilidade é lido dentro de cada ano.</p>
 </section>
 
-<hr>
-
-<!-- CAP 3 -->
-<section class="cap">
+<!-- ===================== CAP 3 ===================== -->
+<section class="cap" id="cap3">
   <p class="cap-num">Capítulo 3</p>
   <h2>O que diferencia um degrau do outro</h2>
-  <figure><img src="figures/fig3_transicoes.png" alt="Transições entre estratos">
-    <figcaption>Δ de acerto por habilidade entre estratos consecutivos (2023).</figcaption></figure>
+  <p>Comparar estratos consecutivos mostra qual habilidade separa um grupo do seguinte.</p>
+  <figure><img src="figures/fig3_transicoes.png" alt="Transições entre estratos consecutivos">
+    <figcaption>Diferença de acerto por habilidade entre estratos consecutivos, 2023.</figcaption></figure>
   <ul>
-    <li><strong>Chute → Baixo:</strong> o que mais avança é <strong>Leitura de Dados (+22 pp)</strong>. Sair do acaso é antes de tudo conseguir ler informação.</li>
-    <li><strong>Baixo → Médio:</strong> o motor é <strong>Porcentagem (+25 pp)</strong>.</li>
-    <li><strong>Médio → Alto:</strong> o salto é largo e geral (+28 pp em média). Chegar ao adequado depende de fluência em quase tudo ao mesmo tempo.</li>
+    <li><strong>Chute → Baixo:</strong> o que mais avança é <strong>Leitura de Dados (+22 pp)</strong>. Sair do acaso é, antes de tudo, conseguir ler informação apresentada em gráfico ou tabela.</li>
+    <li><strong>Baixo → Médio:</strong> o motor é <strong>Porcentagem (+25 pp)</strong>, a aritmética aplicada.</li>
+    <li><strong>Médio → Alto:</strong> o salto é largo e geral (+28 pp em média por habilidade). Chegar ao adequado não depende de uma habilidade, depende de fluência em quase todas ao mesmo tempo.</li>
   </ul>
-  <figure><img src="figures/fig4_emergencia.png" alt="Emergência das habilidades por percentil">
-    <figcaption>Leitura de Dados acorda cedo e dispara; as demais só decolam no terço superior, e Medida e Estatística ficam baixas até o topo.</figcaption></figure>
+  <figure><img src="figures/fig4_emergencia.png" alt="Emergência das habilidades por percentil de proficiência">
+    <figcaption>Acerto por habilidade ao longo do percentil de proficiência. Leitura de Dados acorda cedo e dispara; as demais só decolam no terço superior, e Medida e Estatística ficam baixas até o topo.</figcaption></figure>
+  <p class="punch">A matemática que o sistema entrega primeiro é a de ler dados. A abstração quase não chega.</p>
 </section>
 
-<hr>
-
-<!-- CAP 4 -->
-<section class="cap">
+<!-- ===================== CAP 4 ===================== -->
+<section class="cap" id="cap4">
   <p class="cap-num">Capítulo 4</p>
   <h2>As escolas e a sala de aula</h2>
-  <p>O SAEB é censitário e já vem com escola e turma identificadas, então o mapa de escolas é nativo.</p>
-  <figure><img src="figures/fig5_escolas.png" alt="Escolas em seis segmentos">
-    <figcaption>19.811 escolas com N≥10. <strong>67% caem no segmento Baixa</strong> (média &lt; 275) e só 179 (0,9%) são Alta.</figcaption></figure>
-  <figure><img src="figures/fig6_sala.png" alt="Sala de aula por segmento">
-    <figcaption>Turmas reais. A sala típica de uma escola Baixa é dominada por Chute e Baixo; mesmo nas escolas Alta a turma é heterogênea.</figcaption></figure>
+  <p>O SAEB é censitário e já vem com escola e turma identificadas, então o mapa de escolas é nativo. No ENEM, isso só foi possível em 2024.</p>
+  <figure><img src="figures/fig5_escolas.png" alt="Escolas em seis segmentos: média por dispersão interna">
+    <figcaption>Cada ponto é uma escola (N ≥ 10), posicionada pela proficiência média e pela dispersão interna. <strong>67% caem no segmento Baixa</strong> (média &lt; 275) e só 179 escolas (0,9%) são Alta.</figcaption></figure>
+  <p>Traduzindo para a sala de aula real, usando as turmas do próprio dado:</p>
+  <figure><img src="figures/fig6_sala.png" alt="Composição da sala de aula por segmento de escola">
+    <figcaption>A turma típica de uma escola Baixa é dominada por alunos no Chute e no Baixo. Mesmo nas escolas Alta a turma é heterogênea, com presença relevante do Médio.</figcaption></figure>
   <p class="punch">Visto escola por escola, o sistema é majoritariamente de baixo desempenho.</p>
 </section>
 
-<hr>
-
-<!-- CAP 5 -->
-<section class="cap">
+<!-- ===================== CAP 5 ===================== -->
+<section class="cap" id="cap5">
   <p class="cap-num">Capítulo 5</p>
   <h2>O gradiente socioeconômico, e a síntese</h2>
-  <figure><img src="figures/fig7_socio.png" alt="Proficiência por quinto socioeconômico">
-    <figcaption>2023. Quinto mais pobre: 257 de média, 2,7% no adequado. Quinto mais rico: 282, 10,4%.</figcaption></figure>
-  <p>O gradiente é claro (o aluno mais rico tem quase quatro vezes mais chance de atingir o adequado), e modesto em termos absolutos: <strong>mesmo no topo socioeconômico, 9 em cada 10 concluintes não atingem o aprendizado adequado em matemática.</strong> O déficit é geral, não um problema só dos mais pobres.</p>
+  <figure><img src="figures/fig7_socio.png" alt="Proficiência por quinto socioeconômico (INSE)">
+    <figcaption>2023. Quinto mais pobre: 257 de média, 2,7% no adequado. Quinto mais rico: 282, 10,4%. Entre parênteses, o % no estrato Alto.</figcaption></figure>
+  <p>O gradiente é claro, o aluno mais rico tem quase quatro vezes mais chance de atingir o adequado, e modesto em termos absolutos: <strong>mesmo no topo socioeconômico, 9 em cada 10 concluintes não atingem o aprendizado adequado em matemática.</strong> O déficit é geral, não um problema só dos mais pobres.</p>
 
-  <p>No censo, a hipótese que ficou aberta no ENEM se confirma: a maioria dos concluintes do Ensino Médio termina sem domínio sólido de matemática, um em cada cinco no nível do acaso, e só 5,5% no aprendizado adequado. A única habilidade com alguma cobertura é leitura de dados; a abstração fica para trás em toda a distribuição. E, na régua equalizada, a década é de estagnação, com a pandemia desfazendo o pouco que se ganhou.</p>
+  <p>No censo, a hipótese que ficou aberta no ENEM se confirma: a maioria dos concluintes do Ensino Médio termina sem domínio sólido de matemática, um em cada cinco no nível do acaso, e só 5,5% no aprendizado adequado. A única habilidade com alguma cobertura é leitura de dados. A abstração fica para trás em toda a distribuição. E, na régua equalizada, a década é de estagnação, com a pandemia desfazendo o pouco que se havia ganhado.</p>
 </section>
 
 <div class="nota">
-  <strong>Nota metodológica.</strong> Edições censitárias 2017/2019/2021/2023 (mesma metodologia; 2013/2015 da era Prova Brasil, amostral, ficaram de fora). Escore por item via gabarito; habilidade pelo descritor oficial (single-loading; sem o entrelaçamento multi-habilidade do ENEM). Estratos: Chute (taxa &lt; 0,20), e faixas de proficiência com Alto ≥ 350 (aprendizado adequado). Não há vetor de habilidade por aluno (desenho BIB, ~26 de 91 itens por aluno); toda análise de habilidade é agregada. Validação: correlação entre acerto e proficiência de 0,88 a 0,95 nos quatro anos. Detalhes e pendências em <code>DECISOES.md</code>.
+  <strong>Nota metodológica.</strong> Quatro edições censitárias (2017, 2019, 2021, 2023); 2013/2015, da era Prova Brasil e amostrais no EM, ficaram de fora. Para cada aluno, as respostas item a item são escoreadas pelo gabarito, e cada item é ligado à habilidade que mede pelo descritor da Matriz de Referência (um descritor por item, sem o entrelaçamento multi-habilidade do ENEM). Estratos: Chute (taxa de acerto &lt; 0,20) e faixas de proficiência, com Alto ≥ 350 (aprendizado adequado). Não há vetor de habilidade por aluno, porque o desenho da prova (blocos incompletos balanceados) dá só ~26 de 91 itens por aluno; toda análise de habilidade é agregada. Validação: a correlação entre acerto escoreado e proficiência oficial fica entre 0,88 e 0,95 nos quatro anos. Detalhes, escolhas e pendências no repositório.
 </div>
 
 </main>
 
 <footer><div class="wrap">
-  Fontes: Microdados SAEB (INEP), 2017/2019/2021/2023. Pipeline em <code>scripts/</code>. Projeto independente. Rascunho v1.
+  Fontes: Microdados SAEB (INEP), 2017 / 2019 / 2021 / 2023. Cálculos independentes. Projeto separado da análise do ENEM. <span class="badge">rascunho v1</span>
 </div></footer>
 
 </body>
