@@ -5,10 +5,10 @@ Tudo aqui é reversível e está parametrizado nos scripts em `scripts/`. Pontos
 marcados com ⚠️ são escolhas que valem revisão.
 
 ## 0. Escopo de edições
-- Edições usadas: **2017, 2019, 2023** (censo EM, mesma metodologia).
-- **Excluídas 2013/2015** (era Prova Brasil, EM amostral, estrutura incompatível). 2021 não estava no host padrão do INEP (URL a resolver).
-- Schemas diferem entre anos (separador `,` em 2017 vs `;`; nomes "Prova Brasil" em 2017; código de série EM no banco de itens = 12 em 2017/2019 e 3 em 2023; INSE só em 2023). Absorvido pelo dicionário `SCHEMA` em `scripts/build_consolidated.py`.
-- **Validação**: correlação acerto×proficiência = 0,93 (2017), 0,95 (2019), 0,88 (2023), confirmando o escoreamento e o mapeamento de blocos em todos os schemas.
+- Edições usadas: **2017, 2019, 2021, 2023** (4 censos EM, mesma metodologia).
+- **Excluídas 2013/2015** (era Prova Brasil, EM amostral, estrutura incompatível). 2021 estava com nome próprio no host (`microdados_saeb_2021_ensino_fundamental_e_medio.zip`).
+- Schemas diferem entre anos (separador `,` em 2017 vs `;`; nomes "Prova Brasil" em 2017; código de série EM no banco de itens = 12 em 2017/2019/2021 e 3 em 2023; INSE em 2021 e 2023, ausente em 2017/2019). Absorvido pelo dicionário `SCHEMA` em `scripts/build_consolidated.py`.
+- **Validação**: correlação acerto×proficiência = 0,93 (2017), 0,95 (2019), 0,95 (2021), 0,88 (2023), confirmando o escoreamento e o mapeamento de blocos em todos os schemas.
 - ⚠️ Descritores `D36`/`D37` (e um `X` de item anulado) aparecem em 2017/2019 e não estão no de-para (vão para OUTRO, ~2 itens/ano fora da agregação por T; contam na taxa). Estender o de-para se quiser.
 
 ## ⚠️ Comparabilidade temporal (importante)

@@ -17,7 +17,7 @@ apply_style()
 
 OUT = ROOT / 'outputs' / 'site' / 'figures'
 OUT.mkdir(parents=True, exist_ok=True)
-ANOS = [2017, 2019, 2023]
+ANOS = [2017, 2019, 2021, 2023]
 df = pd.read_parquet(ROOT / 'data' / 'consolidated_saeb_2023_em.parquet')  # cross-section canônica
 print(f'{len(df):,} alunos (2023)')
 

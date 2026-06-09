@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A matemática que falta, no censo: SAEB 2017–2023</title>
+<title>A matemática que falta, no censo: SAEB 2017–2023 (4 censos)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -44,7 +44,7 @@
 
 <main class="wrap">
 
-<p>Três edições censitárias, mesma metodologia: <strong>2017, 2019 e 2023</strong>, cerca de 1,5 milhão de concluintes do EM em cada uma, com prova de matemática válida. Para cada aluno, escoreamos as respostas item a item, ligamos cada item à habilidade que ele mede (o descritor da Matriz de Referência) e estratificamos pela proficiência. O método é o mesmo do artigo do ENEM. As decisões estão em <code>DECISOES.md</code>.</p>
+<p>Quatro edições censitárias, mesma metodologia: <strong>2017, 2019, 2021 e 2023</strong>, cerca de 1,4 a 1,5 milhão de concluintes do EM em cada uma, com prova de matemática válida. Para cada aluno, escoreamos as respostas item a item, ligamos cada item à habilidade que ele mede (o descritor da Matriz de Referência) e estratificamos pela proficiência. O método é o mesmo do artigo do ENEM. As decisões estão em <code>DECISOES.md</code>.</p>
 
 <hr>
 
@@ -57,7 +57,7 @@
   <figure><img src="figures/fig0_evolucao.png" alt="Evolução da proficiência e do % adequado">
     <figcaption>Proficiência média e percentual no aprendizado adequado (≥350), 2017–2023. Escala SAEB equalizada.</figcaption></figure>
 
-  <p>A proficiência média foi <strong>266 (2017) → 273 (2019) → 268 (2023)</strong>. O aprendizado adequado (≥350) subiu de 6,6% para 7,4% até 2019 e <strong>caiu para 5,5% em 2023</strong>, abaixo de onde estava em 2017. Houve um ganho pequeno na segunda metade da década passada, e a pandemia o apagou.</p>
+  <p>A proficiência média foi <strong>266 (2017) → 273 (2019) → 267 (2021) → 268 (2023)</strong>. O aprendizado adequado (≥350) subiu de 6,6% para 7,4% até 2019, <strong>despencou para 5,2% em 2021</strong> (o fundo da pandemia) e mal se recuperou em 2023 (5,5%), abaixo de onde estava em 2017. Houve um ganho pequeno na segunda metade da década passada, e a pandemia o apagou.</p>
 
   <figure><img src="figures/fig0b_estratos_tempo.png" alt="Composição por faixa de proficiência ao longo do tempo">
     <figcaption>Distribuição por faixa de proficiência. A faixa abaixo de 275 volta a 58% em 2023.</figcaption></figure>
@@ -87,7 +87,7 @@
     <li><strong>Fora do estrato Alto, quase nada passa de 50%.</strong> No Médio, só Leitura de Dados (75%) e Porcentagem (55%) cruzam a metade.</li>
     <li>Mesmo o topo tem buracos: o Alto acerta Leitura de Dados em 92%, mas Estatística em 45% e Medida em 58%.</li>
   </ul>
-  <p>A <strong>forma</strong> desse perfil é estável nas três edições (Leitura de Dados sempre na frente, abstração sempre atrás). Os níveis absolutos por habilidade não são comparáveis entre anos, porque a composição de itens de cada prova muda; por isso o eixo temporal fica na proficiência equalizada, e o perfil de habilidade é lido dentro de cada ano.</p>
+  <p>A <strong>forma</strong> desse perfil é estável nas quatro edições (Leitura de Dados sempre na frente, abstração sempre atrás). Os níveis absolutos por habilidade não são comparáveis entre anos, porque a composição de itens de cada prova muda; por isso o eixo temporal fica na proficiência equalizada, e o perfil de habilidade é lido dentro de cada ano.</p>
 </section>
 
 <hr>
@@ -135,13 +135,13 @@
 </section>
 
 <div class="nota">
-  <strong>Nota metodológica.</strong> Edições censitárias 2017/2019/2023 (mesma metodologia; 2013/2015 da era Prova Brasil, amostral, ficaram de fora). Escore por item via gabarito; habilidade pelo descritor oficial (single-loading; sem o entrelaçamento multi-habilidade do ENEM). Estratos: Chute (taxa &lt; 0,20), e faixas de proficiência com Alto ≥ 350 (aprendizado adequado). Não há vetor de habilidade por aluno (desenho BIB, ~26 de 91 itens por aluno); toda análise de habilidade é agregada. Validação: correlação entre acerto e proficiência de 0,88 a 0,95 nos três anos. Detalhes e pendências em <code>DECISOES.md</code>.
+  <strong>Nota metodológica.</strong> Edições censitárias 2017/2019/2021/2023 (mesma metodologia; 2013/2015 da era Prova Brasil, amostral, ficaram de fora). Escore por item via gabarito; habilidade pelo descritor oficial (single-loading; sem o entrelaçamento multi-habilidade do ENEM). Estratos: Chute (taxa &lt; 0,20), e faixas de proficiência com Alto ≥ 350 (aprendizado adequado). Não há vetor de habilidade por aluno (desenho BIB, ~26 de 91 itens por aluno); toda análise de habilidade é agregada. Validação: correlação entre acerto e proficiência de 0,88 a 0,95 nos quatro anos. Detalhes e pendências em <code>DECISOES.md</code>.
 </div>
 
 </main>
 
 <footer><div class="wrap">
-  Fontes: Microdados SAEB (INEP), 2017/2019/2023. Pipeline em <code>scripts/</code>. Projeto independente. Rascunho v1.
+  Fontes: Microdados SAEB (INEP), 2017/2019/2021/2023. Pipeline em <code>scripts/</code>. Projeto independente. Rascunho v1.
 </div></footer>
 
 </body>

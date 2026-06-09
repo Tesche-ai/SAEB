@@ -9,7 +9,7 @@ Projeto independente sobre **matemática no SAEB, Ensino Médio, ~10 anos**. Rep
 | 2013 / 2015 | amostral (Prova Brasil) | **fora** (estrutura incompatível) |
 | 2017 | censo | **consolidado** (N=1.456.325, corr taxa×prof 0,93) |
 | 2019 | censo | **consolidado** (N=1.514.938, corr 0,95) |
-| 2021 | censo | URL não achada no host padrão (pendente) |
+| 2021 | censo | **consolidado** (N=1.399.839, corr 0,95) |
 | 2023 | censo | **consolidado** (N=1.525.957, corr 0,88) |
 
 URL: `https://download.inep.gov.br/microdados/microdados_saeb_YYYY.zip`.
@@ -20,13 +20,12 @@ URL: `https://download.inep.gov.br/microdados/microdados_saeb_YYYY.zip`.
 3. **Artigo** em `outputs/site/`.
 
 ## Onde estamos
-- **3 censos consolidados (2017, 2019, 2023)**, scorer generalizado por schema, validado (corr 0,88–0,95).
-- **Evolução (proficiência equalizada)**: média 266 → 273 → 268; adequado (≥350) 6,6% → 7,4% → **5,5%**. Ganho até 2019 apagado pela pandemia. Estagnação na década.
+- **4 censos consolidados (2017, 2019, 2021, 2023)**, scorer generalizado por schema, validado (corr 0,88–0,95).
+- **Evolução (proficiência equalizada)**: média 266 → 273 → 267 → 268; adequado (≥350) 6,6% → 7,4% → 5,2% → **5,5%**. Pico em 2019, fundo da pandemia em 2021, sem recuperação real. Estagnação na década.
 - **Cross-section 2023**: Leitura de Dados única habilidade >40%; fora do Alto quase nada passa de 50%; 67% das escolas no segmento Baixa; gradiente socio presente, piso baixo para todos.
 - **Artigo v1** em `outputs/site/index.html` (5 capítulos, dimensão temporal no Cap 1). 9 figuras.
 
 ## A seguir
-1. Resolver a URL do **2021** (completaria 4 censos).
 2. Estender o de-para para **D36/D37**.
 3. Refinar cortes de estrato pelos níveis oficiais da escala.
 4. Frente paralela: **confiabilidade do dado** (detecção de anomalia), mesmo scorer + Censo Escolar.

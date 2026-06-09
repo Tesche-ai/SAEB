@@ -43,6 +43,10 @@ SCHEMA = {
         aluno='DADOS/TS_ALUNO_34EM.csv', sep=';',
         item='DADOS/TS_ITEM.csv', item_sep=';', item_serie_em=12,
         col=_COMMON_NEW, item_col=_ITEMCOL_NEW, inse=None),
+    2021: dict(
+        aluno='DADOS/TS_ALUNO_34EM.csv', sep=';',
+        item='DADOS/TS_ITEM.csv', item_sep=';', item_serie_em=12,
+        col=_COMMON_NEW, item_col=_ITEMCOL_NEW, inse='INSE_ALUNO'),
     2023: dict(
         aluno='MICRODADOS_SAEB_2023/DADOS/TS_ALUNO_34EM.csv', sep=';',
         item='MICRODADOS_SAEB_2023/DADOS/TS_ITEM.csv', item_sep=';', item_serie_em=3,
