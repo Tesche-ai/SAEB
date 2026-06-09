@@ -1,8 +1,20 @@
-# SAEB 2023 — decisões metodológicas (tomadas de forma autônoma)
+# SAEB — decisões metodológicas (tomadas de forma autônoma)
 
-Réplica do pipeline do artigo do ENEM sobre o SAEB 2023, matemática, Ensino Médio.
-Tudo aqui é reversível e está parametrizado nos scripts em `saeb/scripts/`. Pontos
+Réplica do pipeline do artigo do ENEM sobre o SAEB, matemática, Ensino Médio.
+Tudo aqui é reversível e está parametrizado nos scripts em `scripts/`. Pontos
 marcados com ⚠️ são escolhas que valem revisão.
+
+## 0. Escopo de edições
+- Edições usadas: **2017, 2019, 2023** (censo EM, mesma metodologia).
+- **Excluídas 2013/2015** (era Prova Brasil, EM amostral, estrutura incompatível). 2021 não estava no host padrão do INEP (URL a resolver).
+- Schemas diferem entre anos (separador `,` em 2017 vs `;`; nomes "Prova Brasil" em 2017; código de série EM no banco de itens = 12 em 2017/2019 e 3 em 2023; INSE só em 2023). Absorvido pelo dicionário `SCHEMA` em `scripts/build_consolidated.py`.
+- **Validação**: correlação acerto×proficiência = 0,93 (2017), 0,95 (2019), 0,88 (2023), confirmando o escoreamento e o mapeamento de blocos em todos os schemas.
+- ⚠️ Descritores `D36`/`D37` (e um `X` de item anulado) aparecem em 2017/2019 e não estão no de-para (vão para OUTRO, ~2 itens/ano fora da agregação por T; contam na taxa). Estender o de-para se quiser.
+
+## ⚠️ Comparabilidade temporal (importante)
+- A **proficiência é equalizada** entre anos -> o eixo temporal (média, % adequado, faixas) é comparável.
+- A **taxa de acerto bruta e o estrato "Chute"** dependem da dificuldade da prova de cada ano -> **não comparáveis** entre anos.
+- O **acerto por habilidade entre anos** é confundido pela composição de itens de cada prova (mesmo a proficiência fixa não isola, porque os itens por habilidade mudam). Por isso: dimensão temporal = proficiência equalizada; perfil de habilidade = lido **dentro de cada ano** (a forma do perfil é estável entre anos).
 
 ## 1. População e filtros
 - Etapa: **Ensino Médio**, `ID_SERIE` ∈ {12 (3ª série), 13 (4ª série)}. A 4ª série

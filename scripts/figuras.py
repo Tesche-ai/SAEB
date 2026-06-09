@@ -15,10 +15,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # article_style vendor
 from article_style import apply_style, economist_style, PALETTE
 apply_style()
 
-OUT = ROOT / 'outputs' / 'figures'
+OUT = ROOT / 'outputs' / 'site' / 'figures'
 OUT.mkdir(parents=True, exist_ok=True)
-df = pd.read_parquet(ROOT / 'data' / 'consolidated_saeb_2023_em.parquet')
-print(f'{len(df):,} alunos')
+ANOS = [2017, 2019, 2023]
+df = pd.read_parquet(ROOT / 'data' / 'consolidated_saeb_2023_em.parquet')  # cross-section canônica
+print(f'{len(df):,} alunos (2023)')
 
 STRATA = ['Chute', 'Baixo', 'Médio', 'Alto']
 SCOL = {'Chute': '#6C757D', 'Baixo': '#FFB81C', 'Médio': '#00847E', 'Alto': '#5DADE2'}
@@ -219,7 +220,60 @@ def fig_socio():
     print('  fig7_socio')
 
 
+# ============================================================ 0. EVOLUÇÃO (multi-ano)
+def _carrega_anos():
+    return {y: pd.read_parquet(ROOT / 'data' / f'consolidated_saeb_{y}_em.parquet') for y in ANOS}
+
+
+def fig_evolucao():
+    dd = _carrega_anos()
+    media = [dd[y]['proficiencia'].mean() for y in ANOS]
+    adeq = [(dd[y]['proficiencia'] >= 350).mean() * 100 for y in ANOS]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5))
+    ax1.plot(ANOS, media, '-o', color=PALETTE['teal'], lw=3, ms=11)
+    for x, v in zip(ANOS, media):
+        ax1.text(x, v + 0.4, f'{v:.0f}', ha='center', fontsize=11, fontweight=800, color=PALETTE['navy'])
+    ax1.set_xticks(ANOS); ax1.set_ylim(min(media) - 4, max(media) + 4)
+    economist_style(ax1, title='Proficiência média (escala equalizada)',
+                    subtitle='3ª série EM, matemática', drop_yaxis=False)
+    ax2.plot(ANOS, adeq, '-o', color=PALETTE['orange'], lw=3, ms=11)
+    for x, v in zip(ANOS, adeq):
+        ax2.text(x, v + 0.15, f'{v:.1f}%', ha='center', fontsize=11, fontweight=800, color=PALETTE['navy'])
+    ax2.set_xticks(ANOS); ax2.set_ylim(0, max(adeq) + 2)
+    economist_style(ax2, title='% no aprendizado adequado (≥350)',
+                    subtitle='Ganho até 2019, apagado na pandemia', drop_yaxis=False)
+    fig.savefig(OUT / 'fig0_evolucao.png', dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('  fig0_evolucao')
+
+
+def fig_estratos_tempo():
+    dd = _carrega_anos()
+    bandas = ['Abaixo de 275', 'De 275 a 350', 'Adequado (≥350)']
+    bcol = ['#C0392B', '#FFB81C', '#00847E']
+    comp = []
+    for y in ANOS:
+        p = dd[y]['proficiencia']
+        comp.append([(p < 275).mean() * 100, ((p >= 275) & (p < 350)).mean() * 100, (p >= 350).mean() * 100])
+    comp = np.array(comp)
+    fig, ax = plt.subplots(figsize=(9, 5.2))
+    bottom = np.zeros(len(ANOS))
+    for j, (lab, col) in enumerate(zip(bandas, bcol)):
+        ax.bar([str(a) for a in ANOS], comp[:, j], bottom=bottom, color=col, label=lab, width=0.55, edgecolor='white')
+        for i, (v, b) in enumerate(zip(comp[:, j], bottom)):
+            ax.text(i, b + v / 2, f'{v:.0f}', ha='center', va='center', fontsize=10, fontweight=700, color='white')
+        bottom += comp[:, j]
+    ax.set_ylim(0, 100); ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.14), ncol=3, frameon=False)
+    economist_style(ax, title='Composição por faixa de proficiência ao longo do tempo',
+                    subtitle='SAEB EM matemática · escala equalizada')
+    fig.savefig(OUT / 'fig0b_estratos_tempo.png', dpi=150, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('  fig0b_estratos_tempo')
+
+
 if __name__ == '__main__':
+    fig_evolucao()
+    fig_estratos_tempo()
     fig_distribuicao()
     fig_dominio_estrato()
     fig_transicoes()

@@ -4,16 +4,15 @@
 Projeto independente sobre **matemática no SAEB, Ensino Médio, ~10 anos**. Replica os 5 eixos do artigo do ENEM sobre o censo SAEB, numa escala equalizada entre anos. Saída: artigo (site) independente.
 
 ## Edições (bienais, EM matemática)
-| Ano | Tipo EM | Microdado | Status |
-|---|---|---|---|
-| 2013 | amostral | baixando | a inspecionar (era Prova Brasil; estrutura pode diferir) |
-| 2015 | amostral | baixando | a inspecionar |
-| 2017 | censo | baixando | a inspecionar |
-| 2019 | censo | baixando | a inspecionar |
-| 2021 | censo | **não achado** no host padrão | resolver URL |
-| 2023 | censo | OK | **consolidado (baseline)** |
+| Ano | Tipo EM | Status |
+|---|---|---|
+| 2013 / 2015 | amostral (Prova Brasil) | **fora** (estrutura incompatível) |
+| 2017 | censo | **consolidado** (N=1.456.325, corr taxa×prof 0,93) |
+| 2019 | censo | **consolidado** (N=1.514.938, corr 0,95) |
+| 2021 | censo | URL não achada no host padrão (pendente) |
+| 2023 | censo | **consolidado** (N=1.525.957, corr 0,88) |
 
-URLs: `https://download.inep.gov.br/microdados/microdados_saeb_YYYY.zip` (2013/2015/2017/2019/2023 confirmadas; 2021 pendente).
+URL: `https://download.inep.gov.br/microdados/microdados_saeb_YYYY.zip`.
 
 ## Pipeline (espelha o ENEM)
 1. **Scorer** (`scripts/build_consolidated.py`): liga resposta item-a-item ao banco de itens (gabarito + descritor + parâmetros TRI), escoreia 0/1, mapeia descritor → T1–T10, estratifica, salva `data/consolidated_saeb_YYYY_em.parquet` por aluno.
@@ -21,15 +20,17 @@ URLs: `https://download.inep.gov.br/microdados/microdados_saeb_YYYY.zip` (2013/2
 3. **Artigo** em `outputs/site/`.
 
 ## Onde estamos
-- **2023 consolidado** (1.525.957 concluintes): Chute 22% · Baixo 37% · Médio 36% · **Alto 5,5%** (≥350 adequado). Leitura de Dados é a única habilidade >40%; fora do Alto quase nada passa de 50%; 67% das escolas no segmento Baixa.
-- Baseline migrado do trabalho feito no repo ENEM (subpasta `saeb/`, agora aposentada).
+- **3 censos consolidados (2017, 2019, 2023)**, scorer generalizado por schema, validado (corr 0,88–0,95).
+- **Evolução (proficiência equalizada)**: média 266 → 273 → 268; adequado (≥350) 6,6% → 7,4% → **5,5%**. Ganho até 2019 apagado pela pandemia. Estagnação na década.
+- **Cross-section 2023**: Leitura de Dados única habilidade >40%; fora do Alto quase nada passa de 50%; 67% das escolas no segmento Baixa; gradiente socio presente, piso baixo para todos.
+- **Artigo v1** em `outputs/site/index.html` (5 capítulos, dimensão temporal no Cap 1). 9 figuras.
 
 ## A seguir
-1. Baixar e **inspecionar o schema de cada edição** (2013/2015 da era Prova Brasil podem ter estrutura bem diferente; descritor-por-item e respostas-por-bloco podem variar).
-2. **Generalizar o scorer** com adaptadores por ano; consolidar 2017/2019 (censo, próximos de 2023) e, se a estrutura permitir, 2013/2015.
-3. Resolver a URL do **2021**.
-4. **Análises multi-ano**: evolução da proficiência e da distribuição; drift de habilidade na escala equalizada; transições e escolas ao longo do tempo.
-5. **Artigo multi-capítulo** (site) com a dimensão temporal no centro.
+1. Resolver a URL do **2021** (completaria 4 censos).
+2. Estender o de-para para **D36/D37**.
+3. Refinar cortes de estrato pelos níveis oficiais da escala.
+4. Frente paralela: **confiabilidade do dado** (detecção de anomalia), mesmo scorer + Censo Escolar.
+5. Polir o site (interatividade estilo ENEM, se desejado).
 
 ## Frente paralela (futura)
 **Confiabilidade do dado** (detecção de anomalia/manipulação, IDEB): mesmo scorer + Censo Escolar para fluxo. Ver discussão no histórico.
